@@ -2,22 +2,22 @@ export const navLinks = [
     {
         id: 1,
         name: 'Home',
-        href: '#home',
+        href: '',
     },
     {
         id: 2,
         name: 'About',
-        href: '#about',
+        href: 'about',
     },
     {
         id: 3,
         name: 'Work',
-        href: '#work',
+        href: 'work',
     },
     {
         id: 4,
         name: 'Contact',
-        href: '#contact',
+        href: 'contact',
     },
 ];
 
@@ -56,44 +56,120 @@ export const navLinks = [
 //     },
 // ];
 //
-// export const myProjects = [
-//     {
-//         title: 'Podcastr - AI Podcast Platform',
-//         desc: 'Podcastr is a revolutionary Software-as-a-Service platform that transforms the way podcasts are created. With advanced AI-powered features like text-to-multiple-voices functionality, it allows creators to generate diverse voiceovers from a single text input.',
-//         subdesc:
-//             'Built as a unique Software-as-a-Service app with Next.js 14, Tailwind CSS, TypeScript, Framer Motion and Convex, Podcastr is designed for optimal performance and scalability.',
-//         href: 'https://www.youtube.com/watch?v=zfAb95tJvZQ',
-//         texture: '/textures/project/project1.mp4',
-//         logo: '/assets/project-logo1.png',
-//         logoStyle: {
-//             backgroundColor: '#2A1816',
-//             border: '0.2px solid #36201D',
-//             boxShadow: '0px 0px 60px 0px #AA3C304D',
-//         },
-//         spotlight: '/assets/spotlight1.png',
-//         tags: [
-//             {
-//                 id: 1,
-//                 name: 'React.js',
-//                 path: '/assets/react.svg',
-//             },
-//             {
-//                 id: 2,
-//                 name: 'TailwindCSS',
-//                 path: 'assets/tailwindcss.png',
-//             },
-//             {
-//                 id: 3,
-//                 name: 'TypeScript',
-//                 path: '/assets/typescript.png',
-//             },
-//             {
-//                 id: 4,
-//                 name: 'Framer Motion',
-//                 path: '/assets/framer.png',
-//             },
-//         ],
-//     },
+export const myProjects = [
+    {
+        title: 'LinguaLeap - Interactive Language Learning Platform',
+        desc : 'A gamified language learning platform featuring multiple interactive games and real-time multiplayer challenges to help users learn new languages in a fun and engaging way.',
+        // subdesc:
+        //     'Built as a unique Software-as-a-Service app with Next.js 14, Tailwind CSS, TypeScript, Framer Motion and Convex, Podcastr is designed for optimal performance and scalability.',
+        subdesc: 'Tech Stack\n' +
+            'Frontend\n' +
+            'React 18 with TypeScript\n' +
+            'Vite for build tooling\n' +
+            'Tailwind CSS for styling\n' +
+            'Framer Motion for animations\n' +
+            'Zustand for state management\n' +
+            'React Router for navigation\n' +
+            'Socket.IO Client for real-time features\n' +
+            'React Hot Toast for notifications\n' +
+            'Backend\n' +
+            'Node.js with Express\n' +
+            'MongoDB with Mongoose\n' +
+            'Socket.IO for real-time communication\n' +
+            'JWT for authentication\n' +
+            'Redis for caching (with fallback)\n' +
+            'Cookie-based sessions\n' +
+            'Google\'s Generative AI for content generation',
+        href: 'https://praninara.github.io/LinguaLeap/',
+        texture: 'textures/project/project-1.mov',
+        logo: 'assets/project-1-logo.png',
+        logoStyle: {
+            backgroundColor: '#050a23',
+            border: '0.8px solid #36201D',
+            boxShadow: '0px 0px 60px 0px #0422b7D',
+        },
+        spotlight: 'assets/spotlight1.png',
+        tags: [
+            {
+              id:1,
+              name: "Docker",
+              path: "assets/docker.png",
+            },
+            {
+              id: 2,
+              name: 'Redis',
+              path: 'assets/redis.png',
+            },
+            {
+                id: 3,
+                name: 'React.js',
+                path: 'assets/react.svg',
+            },
+            {
+                id: 4,
+                name: 'TailwindCSS',
+                path: 'assets/tailwindcss.png',
+            },
+            {
+                id: 5,
+                name: 'TypeScript',
+                path: 'assets/typescript.png',
+            },
+            {
+                id: 6,
+                name: 'Nginx',
+                path: 'assets/nginx.png',
+            },
+            {
+                id: 7,
+                name: 'Vite',
+                path: 'assets/vite.png',
+            }
+        ],
+    },
+    {
+        title: 'Column-Store DBMS - A lightweight Column-Oriented Database Management System',
+        desc:'Column-Store DBMS is a custom-built, lightweight database management system developed in C++ that stores data in a column-oriented format for efficient analytical processing. It supports defining database schemas using XML, with data stored as individual binary files for each column. The system allows importing data from CSV files while enforcing relational constraints like primary, unique, and foreign keys, ensuring data integrity during insertion. It includes support for simple SQL-style SELECT queries and provides a basic utility framework for future operations like updates and deletions.',
+        subdesc: 'The project emphasizes modular design and low-level data handling, showcasing strong systems programming skills. It includes a basic query engine, a custom data loader, and view support to define reusable virtual tables. Built without relying on existing database libraries, the DBMS demonstrates an understanding of how data is stored, validated, and retrieved at a fundamental level. Planned extensions include support for joins, indexing, and transaction logging to enhance performance and reliability.\n',
+        href: 'https://praninara.github.io/LinguaLeap/',
+        texture: 'textures/project/project-1.mov',
+        logo: 'assets/project-1-logo.png',
+        logoStyle: {
+            backgroundColor: '#050a23',
+            border: '0.8px solid #36201D',
+            boxShadow: '0px 0px 60px 0px #0422b7D',
+        },
+        spotlight: 'assets/spotlight1.png',
+        tags: [
+            {
+                id: 1,
+                name: 'CPP',
+                path: 'assets/c++.png',
+            },
+            {
+                id: 2,
+                name: 'XML',
+                path: 'assets/xml.png',
+            },
+            // {
+            //     id: 3,
+            //     name: 'TailwindCSS',
+            //     path: 'assets/tailwindcss.png',
+            // },
+            // {
+            //     id: 4,
+            //     name: 'TypeScript',
+            //     path: 'assets/typescript.png',
+            // },
+            // {
+            //     id: 5,
+            //     name: 'Framer Motion',
+            //     path: 'assets/framer.png',
+            // },
+        ],
+    }
+    ]
+    // ,
 //     {
 //         title: 'LiveDoc - Real-Time Google Docs Clone',
 //         desc: 'LiveDoc is a powerful collaborative app that elevates the capabilities of real-time document editing. As an enhanced version of Google Docs, It supports millions of collaborators simultaneously, ensuring that every change is captured instantly and accurately.',

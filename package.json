@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
@@ -15,6 +17,7 @@
     "@react-three/drei": "^9.111.3",
     "@react-three/fiber": "^8.17.6",
     "@types/three": "^0.168.0",
+    "framer-motion": "^11.0.8",
     "gsap": "^3.12.5",
     "leva": "^0.9.35",
     "maath": "^0.10.8",
@@ -22,11 +25,11 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-globe.gl": "^2.27.2",
+    "react-intersection-observer": "^9.8.1",
     "react-responsive": "^10.0.0",
+    "react-router-dom": "^7.6.0",
     "three": "^0.167.1",
-    "three-stdlib": "^2.32.2",
-    "framer-motion": "^11.0.8",
-    "react-intersection-observer": "^9.8.1"
+    "three-stdlib": "^2.32.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
@@ -39,9 +42,12 @@
     "eslint-plugin-react": "^7.35.0",
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",
     "eslint-plugin-react-refresh": "^0.4.9",
+    "gh-pages": "^6.3.0",
     "globals": "^15.9.0",
     "postcss": "^8.4.41",
     "tailwindcss": "^3.4.10",
     "vite": "^6.3.5"
-  }
+  },
+  "homepage": "https://pradyunuydarp.github.io/Pradyunuydarp/"
+
 }
