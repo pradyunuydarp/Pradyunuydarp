@@ -18,6 +18,7 @@ import { useRef, useState } from 'react';
 
 import useAlert from '../hooks/useAlert.js';
 import Alert from '../components/Alert.jsx';
+import Footer from "../sections/Footer.jsx";
 
 const Contact = () => {
     const formRef = useRef();
@@ -136,11 +137,12 @@ const Contact = () => {
                         <button className="field-btn" type="submit" disabled={loading}>
                             {loading ? 'Sending...' : 'Send Message'}
 
-                            <img src="/assets/arrow-up.png" alt="arrow-up" className="field-btn_arrow" />
+                            <img src="assets/arrow-up.png" alt="arrow-up" className="field-btn_arrow" />
                         </button>
                     </form>
                 </div>
             </div>
+            <Footer/>
         </section>
     );
 };

@@ -52,10 +52,13 @@ const Hero = () => {
       </Canvas>
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center z-10">
         <h1 className="text-5xl font-bold text-white mb-4">
-          Creative Developer
+          {/*Creative Developer*/}
+            Hey, I'm Pradyun
         </h1>
         <p className="text-xl text-[#4cc9f0]">
-          Blending Technology with Artistry
+          {/*Blending Technology with Artistry*/}
+            I'm a junior at iiitb, majoring in Computer Science.
+            {/*where I explore the intersection of technology and creativity. My journey is fueled by a passion for crafting innovative solutions that make a difference.*/}
         </p>
       </div>
     </section>
