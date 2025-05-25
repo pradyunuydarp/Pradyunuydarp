@@ -676,7 +676,8 @@ const GokuNimbusModel = () => {
 
 const AboutPage = () => {
     // for goku scroll animation
-    const { scrollYProgress } = useScroll();
+    const { scrollYProgress } = useScroll({ target: document.getElementById('about') });
+    // const { scrollYProgress } = useScroll();
     // map scroll progress in this section [0,1] to x from -100% → +100%
     const xRange = useTransform(scrollYProgress, [0.3, 0.6], ['-100%', '100%']);
 

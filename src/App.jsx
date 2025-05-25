@@ -71,8 +71,8 @@ import Publications from './pages/Publications.jsx';
 import Connect   from './pages/Connect.jsx';
 
 import AboutPage from './pages/About.jsx';
-// import ContactPage from './pages/Contact.jsx';
-
+import ContactPage from './pages/Contact.jsx';
+import Footer  from "./sections/Footer.jsx";
 const App = () => (
     <Router>
         <Navbar />
@@ -85,13 +85,13 @@ const App = () => (
                             <Hero />
                             <Projects />
                             <Publications />
-
+                            <Footer/>
                         </>
                     }
                 />
                 <Route path="/about"   element={<AboutPage />} />
                 <Route path="/connect" element={<Connect />} />
-                {/*<Route path="/contact" element={<ContactPage />} />*/}
+                <Route path="/contact" element={<ContactPage />} />
             </Routes>
         </main>
     </Router>
