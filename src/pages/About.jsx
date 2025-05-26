@@ -534,7 +534,7 @@ import LoadingOverlay from "../components/LoadingOverlay.jsx";
 import Music from '../components/Music';
 import VinylModel from '../models/VinylModel';
 import StoriesSection from '../sections/StoriesSection';
-
+import CanvasLoader  from "../components/Loading.jsx";
 const useIsMobile = () => {
     const [isMobile, setIsMobile] = useState(false);
     useEffect(() => {
@@ -592,7 +592,7 @@ const AboutPage = () => {
 
     return (
         <>
-            <LoadingOverlay />
+            {/*<LoadingOverlay />*/}
 
             <main ref={containerRef} className="bg-gradient-to-b from-[#1A1A1A] to-[#2D2D2D] text-white">
                 {/* 1) Algorithms */}
@@ -611,10 +611,11 @@ const AboutPage = () => {
                         </p>
                     </motion.div>
                     <div className="w-full md:w-1/2 lg:w-3/5 h-64 sm:h-80 md:h-[50vh] lg:h-[60vh]">
-                        <Canvas>
+                        <Canvas
+                            dpr={isMobile ? 1 : [1, 2]} gl={{ antialias: !isMobile }}>
                             <ambientLight intensity={0.4} />
                             <spotLight position={[5, 10, 5]} angle={0.3} penumbra={1} intensity={1} color="#FFD700" />
-                            <Suspense fallback={null}>
+                            <Suspense fallback={<CanvasLoader />}>
                                 <GraphModel animated={!isMobile} />
                             </Suspense>
                             {!isMobile && <OrbitControls enableZoom={false} enablePan={false} />}
@@ -624,7 +625,8 @@ const AboutPage = () => {
 
                 {/* 2) Music */}
                 <section className="h-screen overflow-hidden relative ">
-                    <Canvas className="absolute inset-0 scale-105 sm:scale-110 md:scale-100 lg:scale-105">
+                    <Canvas className="absolute inset-0 scale-105 sm:scale-110 md:scale-100 lg:scale-105"
+                            dpr={isMobile ? 1 : [1, 2]} gl={{ antialias: !isMobile }}>
                         <ambientLight intensity={1} />
                         <spotLight
                             position={[0, 3, 2]}
@@ -634,8 +636,9 @@ const AboutPage = () => {
                             color="#FFA500"
                             castShadow
                         />
-                        <Suspense fallback={null}>
-                            <VinylModel scrollProgress={isMobile ? 0 : vinylSpin} />
+                        <Suspense fallback={<CanvasLoader />}>
+                            {/*<VinylModel scrollProgress={isMobile ? 0 : vinylSpin} />*/}
+                            <VinylModel scrollProgress={vinylSpin} />
                         </Suspense>
                         {!isMobile && <OrbitControls enableZoom={false} enablePan={false} />}
                     </Canvas>
@@ -646,7 +649,7 @@ const AboutPage = () => {
                 </section>
 
                 {/* 3) Stories */}
-                <div className="">
+                <div>
                     <StoriesSection />
                 </div>
             </main>

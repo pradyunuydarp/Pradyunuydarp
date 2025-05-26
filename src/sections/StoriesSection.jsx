@@ -396,6 +396,8 @@ import React, { useState, useEffect, Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 
+import CanvasLoader from '../components/Loading.jsx';
+
 import DBLogoModel from '../models/DBLogoModel.jsx';
 import SunnydayModel from '../models/Sunnyday.jsx';
 import KameHouseModel from '../models/KameHouse.jsx';
@@ -427,11 +429,12 @@ export default function StoriesSection() {
                 <Canvas
                     className="absolute inset-0 z-0"
                     camera={{position: [0, 1.5, 8], fov: 50}}
+                    dpr={isMobile ? 1 : [1, 2]} gl={{ antialias: !isMobile }}
                 >
                     <ambientLight intensity={0.5}/>
                     <directionalLight position={[10, 10, 10]} intensity={1}/>
 
-                    <Suspense fallback={null}>
+                    <Suspense fallback={<CanvasLoader />}>
                         <DBLogoModel/>
                         <SunnydayModel/>
                         <KameHouseModel/>
@@ -490,11 +493,12 @@ export default function StoriesSection() {
 
             {/* --- Storm + Shrine + Shenron --- */}
             <section className="relative h-screen w-screen overflow-hidden">
-                <Canvas className="absolute inset-0 z-0" camera={{position: [0, 2, 8], fov: 60}}>
+                <Canvas className="absolute inset-0 z-0" camera={{position: [0, 2, 8], fov: 60}}
+                        dpr={isMobile ? 1 : [1, 2]} gl={{ antialias: !isMobile }}>
                     <ambientLight intensity={0.1}/>
                     <pointLight position={[2, 0, 4]} intensity={10}/>
 
-                    <Suspense fallback={null}>
+                    <Suspense fallback={<CanvasLoader />}>
                         <ThunderstormModel/>
                         <KamisamaShrine/>
                         <ShenronModel/>
@@ -510,17 +514,18 @@ export default function StoriesSection() {
             <section className="relative h-screen w-screen overflow-hidden">
                 <Canvas
                     className="absolute inset-0 z-0"
-                    camera={{ position: [0, 1.5, 8], fov: 50 }}
+                    camera={{position: [0, 1.5, 8], fov: 50}}
+                    dpr={isMobile ? 1 : [1, 2]} gl={{ antialias: !isMobile }}
                 >
-                    <ambientLight intensity={0.5} />
-                    <directionalLight position={[10, 10, 10]} intensity={1} />
+                    <ambientLight intensity={0.5}/>
+                    <directionalLight position={[10, 10, 10]} intensity={1}/>
 
-                    <Suspense fallback={null}>
-                        <BreakingBad />
+                    <Suspense fallback={<CanvasLoader />}>
+                        <BreakingBad/>
                     </Suspense>
 
                     {!isMobile && (
-                        <OrbitControls enableZoom={false} enablePan={false} />
+                        <OrbitControls enableZoom={false} enablePan={false}/>
                     )}
                 </Canvas>
 
@@ -536,31 +541,46 @@ export default function StoriesSection() {
                 {/*    </div>*/}
                 {/*</div>*/}
 
-                <div className="absolute left-10 bottom-1/2 transform -translate-y-1/2 z-10 max-w-md">
+                {/*<div className="absolute left-10 bottom-1/2 transform -translate-y-1/2 z-10 max-w-md">*/}
+                {/*    <div*/}
+                {/*        // className="bg-[#1A1A1A] bg-opacity-95 bg-[#b2c3953] border-2 border-[#4FB1BC] rounded-xl shadow-2xl p-6">*/}
+                {/*        className="bg-[#1A1A1A] bg-opacity-95 bg-[#2c3953] border-2 border-[#722018] border-4 rounded-xl shadow-2xl p-6">*/}
+                {/*        /!*<h2 className="text-4xl font-bold mb-4 text-[#F0C02F]">Cinematic Universes</h2>*!/*/}
+                {/*        <h2 className="text-4xl font-bold mb-4 text-[#b39255]">Cinematic Universes</h2>*/}
+                {/*        <p className="text-lg leading-relaxed text-[#dcd492] font-medium">*/}
+                {/*            Dive deeper into iconic stories that have shaped our culture.*/}
+                {/*            <br/>*/}
+                {/*            This scene pays homage to <span className="text-[#29773e] font-semibold">Br</span><span*/}
+                {/*            className="text-[#032202] font-semibold">eaking</span> <span*/}
+                {/*            className="text-[#29773e] font-semibold">Ba</span><span*/}
+                {/*            className="text-[#032202] font-semibold">d</span> —*/}
+                {/*            a legacy of visual grit and storytelling mastery.*/}
+                {/*        </p>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
+                <div
+                    className="absolute left-10 top-1 transform translate-y-1/2 z-10 max-w-md
+             max-sm:left-1/2 max-sm:translate-x-[-50%] max-sm:bottom-[60%] max-sm:px-4"
+                >
                     <div
-                        // className="bg-[#1A1A1A] bg-opacity-95 bg-[#b2c3953] border-2 border-[#4FB1BC] rounded-xl shadow-2xl p-6">
-                        className="bg-[#1A1A1A] bg-opacity-95 bg-[#2c3953] border-2 border-[#722018] border-4 rounded-xl shadow-2xl p-6">
-                        {/*<h2 className="text-4xl font-bold mb-4 text-[#F0C02F]">Cinematic Universes</h2>*/}
-                        <h2 className="text-4xl font-bold mb-4 text-[#b39255]">Cinematic Universes</h2>
-                        <p className="text-lg leading-relaxed text-[#dcd492] font-medium">
+                        className="bg-[#1A1A1A] bg-opacity-95 bg-[#2c3953] border-4 border-[#722018] rounded-xl shadow-2xl p-6
+               max-sm:max-w-xs"
+                    >
+                        <h2 className="text-4xl font-bold mb-4 text-[#b39255] max-sm:text-2xl max-sm:text-center">
+                            Cinematic Universes
+                        </h2>
+                        <p className="text-lg leading-relaxed text-[#dcd492] font-medium max-sm:text-sm max-sm:text-center">
                             Dive deeper into iconic stories that have shaped our culture.
                             <br/>
-                            {/*This scene pays homage to <span className="text-[#29773e] font-semibold">Br</span><span*/}
-                            {/*className="text-[#7ADFE1] font-semibold">eaking</span> <span*/}
-                            {/*className="text-[#29773e] font-semibold">Ba</span><span*/}
-                            {/*className="text-[#7ADFE1] font-semibold">d</span> —*/}
-                            {/*a legacy of visual grit and storytelling mastery.*/}
                             This scene pays homage to <span className="text-[#29773e] font-semibold">Br</span><span
                             className="text-[#032202] font-semibold">eaking</span> <span
                             className="text-[#29773e] font-semibold">Ba</span><span
                             className="text-[#032202] font-semibold">d</span> —
                             a legacy of visual grit and storytelling mastery.
-                            {/*his scene pays homage to <span*/}
-                            {/*className="text-[#29773e] font-semibold">Breaking Bad</span> —*/}
-                            {/*a legacy of visual grit and storytelling mastery.*/}
                         </p>
                     </div>
                 </div>
+
             </section>
         </>
     );
