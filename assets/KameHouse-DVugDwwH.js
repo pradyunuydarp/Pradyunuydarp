@@ -1,0 +1,1 @@
+import{j as e}from"./vendor-BciO8-zK.js";import{b as s}from"./three-DAURERe5.js";import"./react-dom-JRV-XSxP.js";import"./zustand-DvCYfLjD.js";const p=()=>{const{scene:o}=s("models/kame_house.glb");return e.jsx("primitive",{object:o,scale:.7,position:[0,-4,-8]})};export{p as default};
