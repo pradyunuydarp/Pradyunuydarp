@@ -26,6 +26,18 @@ export default {
             backgroundImage: {
                 terminal: "url('/assets/terminal.png')",
             },
+
+            // 🔽 Add this block
+            keyframes: {
+                glide: {
+                    '0%': { transform: 'translateX(-100%)', opacity: '0' },
+                    '50%': { opacity: '1' },
+                    '100%': { transform: 'translateX(0)', opacity: '1' },
+                },
+            },
+            animation: {
+                glide: 'glide 1.5s ease-out forwards',
+            },
         },
     },
     plugins: [],

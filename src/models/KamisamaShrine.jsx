@@ -16,12 +16,21 @@ const KamisamaShrine = (props) => {
         });
     }, [scene]);
 
+    // return (
+    //     <primitive
+    //         ref={ref}
+    //         object={scene}
+    //         scale={20}
+    //         position={[0, -1, 0]}
+    //         {...props}
+    //     />
+    // );
     return (
         <primitive
             ref={ref}
             object={scene}
             scale={20}
-            position={[0, -1, 0]}
+            position={[2, 0, 0]}
             {...props}
         />
     );

@@ -4,14 +4,14 @@ import {useFrame} from "@react-three/fiber";
 
 const DBLogoModel = () => {
 
-    const { scene } = useGLTF('models/dragonball__logo.glb');
+    const { scene } = useGLTF('/Pradyunuydarp/models/dragonball__logo.glb');
 
     return (
         <primitive
             object={scene}
-            scale={2.8} // adjust scale as needed
-            position={[-4, -0.5, -15]} // push back into the background
-            rotation={[0, -0.01, 0]} // adjust rotation if needed
+            scale={0.8} // adjust scale as needed
+            position={[-12, 5, -15]} // push back into the background
+            rotation={[0, -Math.PI / 100, 0]} // adjust rotation if needed
         />
     );
 

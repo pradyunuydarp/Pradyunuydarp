@@ -2,7 +2,7 @@ import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Sparkles } from '@react-three/drei';
 import { useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
-
+import { useEffect, useState } from 'react';
 const FloatingParticles = () => {
   const particlesRef = useRef();
 
@@ -33,36 +33,106 @@ const FloatingParticles = () => {
   );
 };
 
+
+// const Hero = () => {
+//   return (
+//       <section className="h-screen w-full relative">
+//           <Canvas
+//               camera={{position: [0, 0, 8], fov: 75}}
+//               className="bg-[#1a1a2e]"
+//           >
+//               <ambientLight intensity={0.5}/>
+//               <pointLight position={[10, 10, 10]} intensity={1}/>
+//               <FloatingParticles/>
+//               <OrbitControls
+//                   enableZoom={false}
+//                   enablePan={false}
+//                   autoRotate
+//                   autoRotateSpeed={0.5}
+//               />
+//           </Canvas>
+//           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center z-10">
+//               <h1 className="text-5xl font-bold text-white mb-4">
+//                   {/*Creative Developer*/}
+//                   Hey, I'm Pradyun
+//               </h1>
+//               <p className="text-xl text-[#4cc9f0]">
+//                   {/*Blending Technology with Artistry*/}
+//                   I'm a junior at iiitb, majoring in Computer Science.
+//                   {/*where I explore the intersection of technology and creativity. My journey is fueled by a passion for crafting innovative solutions that make a difference.*/}
+//               </p>
+//           </div>
+//           {/*<a*/}
+//           {/*    href="#about"*/}
+//           {/*    className="mt-6 inline-block text-[#4cc9f0] text-lg font-semibold underline underline-offset-4 hover:text-white transition-colors duration-300"*/}
+//           {/*>*/}
+//           {/*    Learn more about me and my interests →*/}
+//           {/*</a>*/}
+//           <a
+//               href="#about"
+//               className="mt-6 inline-block text-[#4cc9f0] text-lg font-semibold underline underline-offset-4 hover:text-white transition-colors duration-300 animate-glide"
+//           >
+//               Learn more about me and my interests →
+//           </a>
+//
+//       </section>
+//   );
+// };
+//
+// export default Hero;
+
+
 const Hero = () => {
-  return (
-    <section className="h-screen w-full relative">
-      <Canvas
-        camera={{ position: [0, 0, 8], fov: 75 }}
-        className="bg-[#1a1a2e]"
-      >
-        <ambientLight intensity={0.5} />
-        <pointLight position={[10, 10, 10]} intensity={1} />
-        <FloatingParticles />
-        <OrbitControls 
-          enableZoom={false}
-          enablePan={false}
-          autoRotate
-          autoRotateSpeed={0.5}
-        />
-      </Canvas>
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center z-10">
-        <h1 className="text-5xl font-bold text-white mb-4">
-          {/*Creative Developer*/}
-            Hey, I'm Pradyun
-        </h1>
-        <p className="text-xl text-[#4cc9f0]">
-          {/*Blending Technology with Artistry*/}
-            I'm a junior at iiitb, majoring in Computer Science.
-            {/*where I explore the intersection of technology and creativity. My journey is fueled by a passion for crafting innovative solutions that make a difference.*/}
-        </p>
-      </div>
-    </section>
-  );
+    const linkRef = useRef();
+    const [isVisible, setIsVisible] = useState(false);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true);
+                }
+            },
+            {
+                threshold: 0.5, // Trigger when 50% of the element is visible
+            }
+        );
+
+        if (linkRef.current) {
+            observer.observe(linkRef.current);
+        }
+
+        return () => {
+            if (linkRef.current) {
+                observer.unobserve(linkRef.current);
+            }
+        };
+    }, []);
+
+    return (
+        <section className="h-screen w-full relative">
+            <Canvas camera={{ position: [0, 0, 8], fov: 75 }} className="bg-[#1a1a2e]">
+                <ambientLight intensity={0.5} />
+                <pointLight position={[10, 10, 10]} intensity={1} />
+                <FloatingParticles />
+                <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.5} />
+            </Canvas>
+
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center z-10">
+                <h1 className="text-5xl font-bold text-white mb-4">Hey, I'm Pradyun</h1>
+                <p className="text-xl text-[#4cc9f0]">
+                    I'm a junior at iiitb, majoring in Computer Science.
+                </p>
+                <a
+                    ref={linkRef}
+                    href="#about"
+                    className={"inline-block mt-6 px-6 py-2 rounded-md text-lg font-semibold text-300 bg-[#4cc9f0] hover:bg-[#62646C] transition duration-300"}
+                >
+                    Learn more about me and my interests →
+                </a>
+            </div>
+        </section>
+    );
 };
 
 export default Hero;

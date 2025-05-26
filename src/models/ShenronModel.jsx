@@ -74,12 +74,21 @@ export default function ShenronModel() {
     });
 
 
+    // return (
+    //     <primitive
+    //         ref={ref}
+    //         object={scene}
+    //         scale={0.0035}
+    //         position={[0, -1, 2]}
+    //         // rotation={[0, Math.PI, 0]} // adjust rotation if needed
+    //     />
+    // );
     return (
         <primitive
             ref={ref}
             object={scene}
             scale={0.0035}
-            position={[0, -1, 2]}
+            position={[2, 0, 2]}
             // rotation={[0, Math.PI, 0]} // adjust rotation if needed
         />
     );
