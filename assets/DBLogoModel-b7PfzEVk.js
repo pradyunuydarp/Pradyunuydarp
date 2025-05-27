@@ -1,1 +1,0 @@
-import{d as t,j as r}from"./vendor-BzdVmc3G.js";import"./three-CJdMxgMM.js";import"./hls-B91O44UO.js";const i=()=>{const{scene:o}=t("/Pradyunuydarp/models/dragonball__logo.glb");return r.jsx("primitive",{object:o,scale:.8,position:[-12,5,-15],rotation:[0,-Math.PI/100,0]})};export{i as default};
