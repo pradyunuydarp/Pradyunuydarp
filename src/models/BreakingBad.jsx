@@ -156,6 +156,8 @@ import { useGLTF } from '@react-three/drei';
 const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
 
 // Preload optimized models
+if(!isMobile)useGLTF.preload('/Pradyunuydarp/models/hermano_los_polos.glb');
+if(!isMobile)useGLTF.preload('/Pradyunuydarp/models/sky_pano_-_monument_valley_lookout.glb');
 useGLTF.preload('/Pradyunuydarp/models/hermano_los_polos_small.glb');
 useGLTF.preload('/Pradyunuydarp/models/sky_pano_-_monument_valley_lookout_small.glb');
 useGLTF.preload('/Pradyunuydarp/models/walter_white__breaking_bad_cubic_worlds.glb');

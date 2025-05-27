@@ -392,20 +392,31 @@
 // }
 
 // src/sections/StoriesSection.jsx
-import React, { useState, useEffect, Suspense } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 
-import CanvasLoader from '../components/Loading.jsx';
+// import CanvasLoader from '../components/Loading.jsx';
 
-import DBLogoModel from '../models/DBLogoModel.jsx';
-import SunnydayModel from '../models/Sunnyday.jsx';
-import KameHouseModel from '../models/KameHouse.jsx';
-import MovingGoku from '../models/MovingGoku.jsx';
-import ThunderstormModel from '../models/ThunderStorm.jsx';
-import KamisamaShrine from '../models/KamisamaShrine.jsx';
-import ShenronModel from '../models/ShenronModel.jsx';
-import BreakingBad from '../models/BreakingBad.jsx';
+// import DBLogoModel from '../models/DBLogoModel.jsx';
+// import SunnydayModel from '../models/Sunnyday.jsx';
+// import KameHouseModel from '../models/KameHouse.jsx';
+// import MovingGoku from '../models/MovingGoku.jsx';
+// import ThunderstormModel from '../models/ThunderStorm.jsx';
+// import KamisamaShrine from '../models/KamisamaShrine.jsx';
+// import ShenronModel from '../models/ShenronModel.jsx';
+// import BreakingBad from '../models/BreakingBad.jsx';
+const CanvasLoader = lazy(() => import('../components/Loading.jsx'));
+
+const DBLogoModel = lazy(() => import('../models/DBLogoModel'));
+const SunnydayModel = lazy(() => import('../models/Sunnyday'));
+const KameHouseModel = lazy(() => import('../models/KameHouse'));
+const MovingGoku = lazy(() => import('../models/MovingGoku'));
+const ThunderstormModel = lazy(() => import('../models/ThunderStorm'));
+const KamisamaShrine = lazy(() => import('../models/KamisamaShrine'));
+const ShenronModel = lazy(() => import('../models/ShenronModel'));
+
+const BreakingBad = lazy(() => import('../models/BreakingBad'));
 
 export default function StoriesSection() {
     // 1) Mobile detection hook
@@ -469,9 +480,9 @@ export default function StoriesSection() {
                         <h2 className="text-3xl font-bold mb-2 text-[#FF6A00] max-sm:text-2xl max-sm:text-center">Great
                             Stories</h2>
                         <p className="text-white font-semibold leading-relaxed max-sm:text-sm max-sm:text-center">
-                            Journey through narratives that inspire innovation.
+                            I love good stories and anime- Dragon Ball, Hereditary, Breaking Bad, and more.
                             <br/>
-                            Watch as Goku soars through the canvas, symbolizing limitless possibilities.
+                            Watch as Goku soars through the canvas on his nimbus, symbolizing limitless possibilities.
                         </p>
                     </div>
                 </div>
@@ -567,10 +578,10 @@ export default function StoriesSection() {
                max-sm:max-w-xs"
                     >
                         <h2 className="text-4xl font-bold mb-4 text-[#b39255] max-sm:text-2xl max-sm:text-center">
-                            Cinematic Universes
+                            Cinematic Masterpieces
                         </h2>
                         <p className="text-lg leading-relaxed text-[#dcd492] font-medium max-sm:text-sm max-sm:text-center">
-                            Dive deeper into iconic stories that have shaped our culture.
+                            I'm also a sucker for great acting and storytelling in cinema.
                             <br/>
                             This scene pays homage to <span className="text-[#29773e] font-semibold">Br</span><span
                             className="text-[#032202] font-semibold">eaking</span> <span

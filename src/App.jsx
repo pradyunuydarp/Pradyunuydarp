@@ -69,9 +69,12 @@ import Hero      from './components/Hero.jsx';
 import Projects   from './pages/Projects.jsx';
 import Publications from './pages/Publications.jsx';
 import Connect   from './pages/Connect.jsx';
-
+import ContactPage from './pages/ContactPage.jsx';
 import AboutPage from './pages/About.jsx';
-import ContactPage from './pages/Contact.jsx';
+import Contact from './pages/Contact.jsx';
+import Skills from './components/Skills.jsx';
+import Resume from './components/Resume';
+
 import Footer  from "./sections/Footer.jsx";
 const App = () => (
     <Router>
@@ -83,12 +86,26 @@ const App = () => (
                     element={
                         <>
                             <Hero />
-                            <Projects />
+                            <section id="projects" >
+                                <Projects/>
+                            </section>
                             <Publications />
+                            <section id="resume">
+                                <Resume />
+                            </section>
+                            <section id="skills">
+                                <Skills />
+                            </section>
+                            <section id="contact">
+                                <Contact/>
+                            </section>
                             <Footer/>
                         </>
                     }
                 />
+                <Route path="/resume" element={<Resume />} />
+                <Route path="/projects" element={<Projects />} />
+                <Route path="/publications" element={<Publications />} />
                 <Route path="/about"   element={<AboutPage />} />
                 <Route path="/connect" element={<Connect />} />
                 <Route path="/contact" element={<ContactPage />} />

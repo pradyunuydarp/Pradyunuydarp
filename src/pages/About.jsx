@@ -526,15 +526,21 @@
 //
 
 // src/pages/AboutPage.jsx
-import React, { Suspense, useRef, useState, useEffect } from 'react';
+import React, { Suspense, useRef, useState, useEffect, lazy } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, Float, Line } from '@react-three/drei';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import {aboutme} from "../constants/index.js";
 import LoadingOverlay from "../components/LoadingOverlay.jsx";
-import Music from '../components/Music';
-import VinylModel from '../models/VinylModel';
-import StoriesSection from '../sections/StoriesSection';
-import CanvasLoader  from "../components/Loading.jsx";
+import {useLocation, useNavigate} from "react-router-dom";
+// import Music from '../components/Music';
+// import VinylModel from '../models/VinylModel';
+// import StoriesSection from '../sections/StoriesSection';
+const VinylModel = lazy(() => import('../models/VinylModel.jsx'));
+const StoriesSection = lazy(() => import('../sections/StoriesSection.jsx'));
+const Music = lazy(() => import('../components/Music.jsx'));
+// import CanvasLoader  from "../components/Loading.jsx";
+const CanvasLoader = lazy(() => import('../components/Loading.jsx'));
 const useIsMobile = () => {
     const [isMobile, setIsMobile] = useState(false);
     useEffect(() => {
@@ -579,6 +585,42 @@ const GraphModel = ({ animated }) => {
     );
 };
 
+
+function ScrollToResumeButton() {
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const scrollToResume = () => {
+        if (location.pathname !== "/") {
+            navigate("/"); // navigate to home
+            // After navigation, scroll must be triggered — use effect or a delay
+            // This can be tricky; simplest is to add a scroll handler on the home component
+        } else {
+            const el = document.getElementById("resume");
+            if (el) el.scrollIntoView({ behavior: "smooth" });
+        }
+    };
+
+    return (
+        <div className="flex flex-col items-center mt-10">
+            {/*<button*/}
+            {/*    onClick={scrollToResume}*/}
+            {/*    className="inline-block mt-6 px-6 py-2 rounded-md text-lg font-semibold text-300 bg-[#4cc9f0] hover:bg-[#62646C] transition duration-300"*/}
+            {/*>*/}
+            {/*    For a deeper look, scroll down to see my Resume ↓*/}
+            {/*</button>*/}
+            <button onClick={scrollToResume}
+                    className="text-[#4cc9f0] text-600 hover:text-blue-400 font-semibold transition-colors duration-200"
+            >
+                View Resume →
+            </button>
+
+        </div>
+    );
+}
+
+
+
 const AboutPage = () => {
     const containerRef = useRef();
     const isMobile = useIsMobile();
@@ -595,6 +637,36 @@ const AboutPage = () => {
             {/*<LoadingOverlay />*/}
 
             <main ref={containerRef} className="bg-gradient-to-b from-[#1A1A1A] to-[#2D2D2D] text-white">
+                {/*<section className="min-h-screen flex flex-col md:flex-row items-center justify-center px-4 md:px-8 lg:px-16 py-12">*/}
+                {/*        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 bg-gradient-to-r from-[#D4AF37] to-[#FFD700] bg-clip-text text-transparent">*/}
+                {/*            About Me*/}
+                {/*        </h2>*/}
+                {/*<p className="text-base sm:text-lg lg:text-xl leading-relaxed mx-auto my-auto text-gray-500">*/}
+                {/*    {aboutme.desc}*/}
+                {/*</p>*/}
+                {/*</section>*/}
+                <section className="min-h-screen flex flex-col lg:flex-row items-center justify-center px-4 md:px8 lg:px-12 py-8 ">
+                    <div className="flex flex-col items-center lg:items-start lg:w-1/2 text-center lg:text-left space-y-8">
+                        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#D4AF37] to-[#FFD700] bg-clip-text text-transparent">
+                            {aboutme.title}
+                        </h2>
+                        <p className="text-base sm:text-lg text-left lg:text-xl text-gray-400 leading-relaxed whitespace-pre-line">
+                            {aboutme.desc}
+                        </p>
+                        <p className = "text-[#FFD700]">
+                            Scroll Down to see a creative page filled with my interests ↓
+                        </p>
+                    </div>
+
+                    <div className="mt-4 lg:mt-0 lg:ml-12 lg:w-1/3 flex justify-center">
+                        <img
+                            src={aboutme.pic}
+                            alt="Pradyun Devarakonda"
+                            className="w-64 h-64 object-cover rounded-full shadow-lg border-4 border-yellow-300"
+                        />
+                    </div>
+                </section>
+
                 {/* 1) Algorithms */}
                 <section className="min-h-screen flex flex-col md:flex-row items-center justify-center px-4 md:px-8 lg:px-16 py-12">
                     <motion.div

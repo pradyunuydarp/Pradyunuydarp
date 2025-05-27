@@ -14,11 +14,15 @@
 // export default ContactPage;
 
 import emailjs from '@emailjs/browser';
-import { useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 
 import useAlert from '../hooks/useAlert.js';
 import Alert from '../components/Alert.jsx';
 import Footer from "../sections/Footer.jsx";
+import {FaGithub, FaInstagram, FaLinkedin} from "react-icons/fa";
+import {Canvas, useFrame} from "@react-three/fiber";
+import {OrbitControls, Sparkles} from "@react-three/drei";
+import FloatingParticles from "../models/FloatingParticles.jsx";
 
 const Contact = () => {
     const formRef = useRef();
@@ -42,9 +46,9 @@ const Contact = () => {
                 import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
                 {
                     from_name: form.name,
-                    to_name: 'JavaScript Mastery',
+                    to_name: 'Pradyun Devarakonda',
                     from_email: form.email,
-                    to_email: 'sujata@jsmastery.pro',
+                    to_email: 'pradyun.devarakonda@24.gmail.com',
                     message: form.message,
                 },
                 import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY,
@@ -81,17 +85,87 @@ const Contact = () => {
     };
 
     return (
-        <section className="c-space my-20" id="contact">
-            {alert.show && <Alert {...alert} />}
+        <section className="h-screen w-full sticky overflow-y-auto" id="contact">
+        {/*<section className="min-h-screen w-full flex items-center justify-center relative" id="contact">*/}
+        {/*<section*/}
+        {/*    id="contact"*/}
+        {/*    className="relative min-h-screen w-full flex items-center justify-center bg-[#1a1a2e] overflow-hidden"*/}
+        {/*>*/}
+        {/*>*/}
 
+            {alert.show && <Alert {...alert} />}
+            {/*<div className="h-full w-full">*/}
+            <Canvas camera={{ position: [0, 0, 8], fov: 75 }} >
+                <ambientLight intensity={100} />
+                <pointLight position={[10, 10, 10]} intensity={1000} />
+                <FloatingParticles />
+                <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.5} />
+            </Canvas>
+            {/*</div>*/}
+            {/*<Canvas*/}
+            {/*    camera={{ position: [0, 0, 8], fov: 75 }}*/}
+            {/*    className="h-full w-full -z-10 bg-[#1a1a2e]"*/}
+            {/*>*/}
+            {/*    <ambientLight intensity={0.5} />*/}
+            {/*    <pointLight position={[10, 10, 10]} intensity={1000} />*/}
+            {/*    <FloatingParticles />*/}
+            {/*    <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.5} />*/}
+            {/*</Canvas>*/}
+            {/*<Canvas className="fixed inset-0 -z-10 bg-red-500">*/}
+            {/*    <ambientLight />*/}
+            {/*    <mesh>*/}
+            {/*        <boxGeometry />*/}
+            {/*        <meshStandardMaterial color="white" />*/}
+            {/*    </mesh>*/}
+            {/*</Canvas>*/}
+
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center z-10">
+            {/*<div className="space-x-20 flex justify-center mb-8">*/}
+            {/*    <a*/}
+            {/*        href="https://www.linkedin.com/in/your-profile"*/}
+            {/*        target="_blank"*/}
+            {/*        rel="noopener noreferrer"*/}
+            {/*        aria-label="LinkedIn"*/}
+            {/*        className="inline-block p-3 rounded-md bg-[#1a1a2e]] hover:bg-[#62646C] transition duration-300"*/}
+            {/*    >*/}
+            {/*        <FaLinkedin size={24} color="#fff" />*/}
+            {/*    </a>*/}
+            {/*    <a*/}
+            {/*        href="https://github.com/your-username"*/}
+            {/*        target="_blank"*/}
+            {/*        rel="noopener noreferrer"*/}
+            {/*        aria-label="GitHub"*/}
+            {/*        className="inline-block p-3 rounded-md bg-[#1a1a2e]] hover:bg-[#62646C] transition duration-300"*/}
+            {/*/!*    >*!/*/}
+            {/*        <FaGithub size={24} color="#fff" />*/}
+            {/*    </a>*/}
+            {/*    <a*/}
+            {/*        href="https://instagram.com/your-username"*/}
+            {/*        target="_blank"*/}
+            {/*        rel="noopener noreferrer"*/}
+            {/*        aria-label="Instagram"*/}
+            {/*        className="inline-block p-3 rounded-md bg-[#1a1a2e]] hover:bg-[#62646C] transition duration-300"*/}
+            {/*    >*/}
+            {/*        <FaInstagram size={24} color="#fff" />*/}
+            {/*    </a>*/}
+            {/*</div>*/}
             <div className="relative min-h-screen flex items-center justify-center flex-col">
                 {/*<img src="assets/terminal.png" alt="terminal-bg" className="absolute inset-0 min-h-screen" />*/}
                 {/**/}
                 <div className="contact-container">
-                    <h3 className="head-text">Let's talk</h3>
+                    <div className="mb-12">
+                        <h2 className="
+    text-4xl sm:text-5xl font-bold text-gray-200
+  ">
+                            Let's connect 📞
+                        </h2>
+                    </div>
+                    {/*<h3 className="head-text">Let's connect 📞</h3>*/}
                     <p className="text-lg text-white-600 mt-3">
-                        Whether you’re looking to build a new website, improve your existing platform, or bring a unique project to
-                        life, I’m here to help.
+                        I’m open to learning, working on projects and internships, and contributing to technology.
+                        Please feel free to reach out to me if you have any questions, suggestions, or just want to say hi!
+                        {/*Whether you’re looking to build a new website, improve your existing platform, or bring a unique project to*/}
+                        {/*life, I’m here to help.*/}
                     </p>
 
                     <form ref={formRef} onSubmit={handleSubmit} className="mt-12 flex flex-col space-y-7">
@@ -142,7 +216,16 @@ const Contact = () => {
                     </form>
                 </div>
             </div>
-            <Footer/>
+                {/*<span>*/}
+                {/*<Canvas camera={{ position: [3, 3, 3], fov: 75 }} className="bg-[#1a1a2e]">*/}
+                {/*    <ambientLight intensity={100} />*/}
+                {/*    <pointLight position={[10, 10, 10]} intensity={1000} />*/}
+                {/*    <FloatingParticles />*/}
+                {/*    <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.5} />*/}
+                {/*</Canvas>*/}
+                {/*</span>*/}
+            </div>
+            {/*<Footer/>*/}
         </section>
     );
 };

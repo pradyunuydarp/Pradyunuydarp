@@ -3,35 +3,101 @@ import { OrbitControls, Sparkles } from '@react-three/drei';
 import { useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { useEffect, useState } from 'react';
-const FloatingParticles = () => {
-  const particlesRef = useRef();
+import { FaLinkedin, FaGithub, FaInstagram } from 'react-icons/fa';
 
-  useFrame(({ clock }) => {
-    if (particlesRef.current) {
-      particlesRef.current.rotation.y = Math.sin(clock.getElapsedTime() * 0.2) * 0.1;
-      particlesRef.current.rotation.x = Math.cos(clock.getElapsedTime() * 0.2) * 0.1;
-    }
-  });
+import FloatingParticles from '../models/FloatingParticles.jsx';
 
-  return (
-    <group ref={particlesRef}>
-      <Sparkles 
-        count={100}
-        scale={[10, 10, 10]}
-        size={1}
-        speed={0.2}
-        color="#4cc9f0"
-      />
-      <Sparkles 
-        count={50}
-        scale={[8, 8, 8]}
-        size={2}
-        speed={0.1}
-        color="#7209b7"
-      />
-    </group>
-  );
-};
+import { useNavigate, useLocation } from "react-router-dom";
+
+function ScrollToProjectsButton() {
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const scrollToProjects = () => {
+        if (location.pathname !== "/") {
+            navigate("/"); // navigate to home
+            // After navigation, scroll must be triggered — use effect or a delay
+            // This can be tricky; simplest is to add a scroll handler on the home component
+        } else {
+            const el = document.getElementById("projects");
+            if (el) el.scrollIntoView({ behavior: "smooth" });
+        }
+    };
+
+    return (
+        <div className="flex flex-col items-center">
+        <button
+            onClick={scrollToProjects}
+            className="inline-block mt-6 px-6 py-2 rounded-md text-lg font-semibold text-300 bg-[#4cc9f0] hover:bg-[#62646C] transition duration-300"
+        >
+            Scroll Down to see my work ↓
+        </button>
+        </div>
+    );
+}
+
+function ScrollToResumeButton() {
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const scrollToResume = () => {
+        if (location.pathname !== "/") {
+            navigate("/"); // navigate to home
+            // After navigation, scroll must be triggered — use effect or a delay
+            // This can be tricky; simplest is to add a scroll handler on the home component
+        } else {
+            const el = document.getElementById("resume");
+            if (el) el.scrollIntoView({ behavior: "smooth" });
+        }
+    };
+
+    return (
+        <div className="flex flex-col items-center mt-10">
+            {/*<button*/}
+            {/*    onClick={scrollToResume}*/}
+            {/*    className="inline-block mt-6 px-6 py-2 rounded-md text-lg font-semibold text-300 bg-[#4cc9f0] hover:bg-[#62646C] transition duration-300"*/}
+            {/*>*/}
+            {/*    For a deeper look, scroll down to see my Resume ↓*/}
+            {/*</button>*/}
+            <button onClick={scrollToResume}
+                className="text-[#4cc9f0] text-600 hover:text-blue-400 font-semibold transition-colors duration-200"
+            >
+                View Resume →
+            </button>
+
+        </div>
+    );
+}
+
+// const FloatingParticles = () => {
+//   const particlesRef = useRef();
+//
+//   useFrame(({ clock }) => {
+//     if (particlesRef.current) {
+//       particlesRef.current.rotation.y = Math.sin(clock.getElapsedTime() * 0.2) * 0.1;
+//       particlesRef.current.rotation.x = Math.cos(clock.getElapsedTime() * 0.2) * 0.1;
+//     }
+//   });
+//
+//   return (
+//     <group ref={particlesRef}>
+//       <Sparkles
+//         count={100}
+//         scale={[10, 10, 10]}
+//         size={1}
+//         speed={0.2}
+//         color="#4cc9f0"
+//       />
+//       <Sparkles
+//         count={50}
+//         scale={[8, 8, 8]}
+//         size={2}
+//         speed={0.1}
+//         color="#7209b7"
+//       />
+//     </group>
+//   );
+// };
 
 
 // const Hero = () => {
@@ -123,6 +189,20 @@ const Hero = () => {
                 <p className="text-xl text-[#4cc9f0]">
                     I'm a junior at iiitb, majoring in Computer Science.
                 </p>
+                {/*<a*/}
+                {/*    href="#projects"*/}
+                {/*    className="inline-block mt-6 px-6 py-2 rounded-md text-lg font-semibold text-300 bg-[#4cc9f0] hover:bg-[#62646C] transition duration-300"*/}
+                {/*>*/}
+                {/*    Scroll Down to see my work →*/}
+                {/*</a>*/}
+                {/*<a*/}
+                {/*    href={`${window.location.pathname}#projects`}*/}
+                {/*    className="inline-block mt-6 px-6 py-2 rounded-md text-lg font-semibold text-300 bg-[#4cc9f0] hover:bg-[#62646C] transition duration-300"*/}
+                {/*>*/}
+                {/*    Scroll Down to see my work →*/}
+                {/*</a>*/}
+
+
                 <a
                     ref={linkRef}
                     href="#about"
@@ -130,6 +210,49 @@ const Hero = () => {
                 >
                     Learn more about me and my interests →
                 </a>
+
+                {/*<div className="space-x-4 mt-6">*/}
+                {/*    <a*/}
+                {/*        href="https://www.linkedin.com/in/your-profile"*/}
+                {/*        target="_blank"*/}
+                {/*        rel="noopener noreferrer"*/}
+                {/*        aria-label="LinkedIn"*/}
+                {/*        className="inline-block p-3 rounded-md bg-[#4cc9f0] hover:bg-[#62646C] transition duration-300"*/}
+                {/*    >*/}
+                {/*        <FaLinkedin size={24} color="#fff" />*/}
+                {/*    </a>*/}
+                {/*    <a*/}
+                {/*        href="https://github.com/your-username"*/}
+                {/*        target="_blank"*/}
+                {/*        rel="noopener noreferrer"*/}
+                {/*        aria-label="GitHub"*/}
+                {/*        className="inline-block p-3 rounded-md bg-[#4cc9f0] hover:bg-[#62646C] transition duration-300"*/}
+                {/*    >*/}
+                {/*        <FaGithub size={24} color="#fff" />*/}
+                {/*    </a>*/}
+                {/*    <a*/}
+                {/*        href="https://instagram.com/your-username"*/}
+                {/*        target="_blank"*/}
+                {/*        rel="noopener noreferrer"*/}
+                {/*        aria-label="Instagram"*/}
+                {/*        className="inline-block p-3 rounded-md bg-[#4cc9f0] hover:bg-[#62646C] transition duration-300"*/}
+                {/*    >*/}
+                {/*        <FaInstagram size={24} color="#fff" />*/}
+                {/*    </a>*/}
+                {/*</div>*/}
+                <div>
+                <a
+                    href="#/contact"
+                    className="inline-block mt-6 px-6 py-2 rounded-md text-lg font-semibold text-300 bg-[#4cc9f0] hover:bg-[#62646C] transition duration-300"
+                >
+                    Contact me →
+                </a>
+                </div>
+
+                <ScrollToProjectsButton />
+
+                <ScrollToResumeButton />
+
             </div>
         </section>
     );
