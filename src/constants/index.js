@@ -27,7 +27,7 @@ export const navLinks = [
     {
         id: 5,
         name: 'Resume',
-        href: '/resume',
+        href: '/',
         section: 'resume',
     },
     // {

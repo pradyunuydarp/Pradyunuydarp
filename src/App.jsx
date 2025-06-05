@@ -110,12 +110,12 @@ const App = () => (
                         </>
                     }
                 />
-                <Route path="/resume" element={<Resume />} />
-                <Route path="/projects" element={<Projects />} />
-                <Route path="/publications" element={<Publications />} />
+                {/*<Route path="/resume" element={<Resume />} />*/}
+                {/*<Route path="/projects" element={<Projects />} />*/}
+                {/*<Route path="/publications" element={<Publications />} />*/}
                 <Route path="/about"   element={<AboutPage />} />
-                <Route path="/connect" element={<Connect />} />
-                <Route path="/contact" element={<ContactPage />} />
+                {/*<Route path="/connect" element={<Connect />} />*/}
+                {/*<Route path="/contact" element={<ContactPage />} />*/}
             </Routes>
         </main>
     </Router>

@@ -190,7 +190,8 @@ const Music = () => {
                 Music
             </h3>
             <p className="text-sm mb-6">
-                I listen to music constantly—beats fuel my creativity.
+                {/*I listen to music constantly—beats fuel my creativity.*/}
+                I listen to music all the time —  to a whole lot of genres- from Classic Rock to Western Classical, from Indian Classical to 80s pop, from Jazz to Hip-Hop, I enjoy it all. Here are some of my playlists:
             </p>
             <div className="flex space-x-4 mb-6">
                 <a

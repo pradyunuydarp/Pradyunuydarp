@@ -531,8 +531,11 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, Float, Line } from '@react-three/drei';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import {aboutme} from "../constants/index.js";
+// import { Float } from "@react-three/drei";
+import { Cone } from "@react-three/drei";
 import LoadingOverlay from "../components/LoadingOverlay.jsx";
 import {useLocation, useNavigate} from "react-router-dom";
+import GraphModel from "../models/GraphModel.jsx";
 // import Music from '../components/Music';
 // import VinylModel from '../models/VinylModel';
 // import StoriesSection from '../sections/StoriesSection';
@@ -541,6 +544,7 @@ const StoriesSection = lazy(() => import('../sections/StoriesSection.jsx'));
 const Music = lazy(() => import('../components/Music.jsx'));
 // import CanvasLoader  from "../components/Loading.jsx";
 const CanvasLoader = lazy(() => import('../components/Loading.jsx'));
+
 const useIsMobile = () => {
     const [isMobile, setIsMobile] = useState(false);
     useEffect(() => {
@@ -554,36 +558,38 @@ const useIsMobile = () => {
     return isMobile;
 };
 
-const GraphModel = ({ animated }) => {
-    const ref = useRef();
-    useFrame((state, delta) => {
-        if (animated && ref.current) {
-            ref.current.rotation.y += delta * 0.1;
-            ref.current.rotation.x = Math.sin(state.clock.elapsedTime) * 0.1;
-        }
-    });
-    const nodes = [
-        [-0.6, 0, 0],
-        [0.6, 0, 0],
-        [0, 0.8, 0.2],
-    ];
-    const edges = [[0, 1], [1, 2], [2, 0]];
-    return (
-        <group ref={ref} scale={1.5}>
-            {nodes.map((pos, i) => (
-                <Float key={i} speed={1} floatIntensity={0.2} rotationIntensity={0.1}>
-                    <mesh position={pos}>
-                        <sphereGeometry args={[0.1, 32, 32]} />
-                        <meshStandardMaterial color="#D4AF37" metalness={0.9} roughness={0.1} />
-                    </mesh>
-                </Float>
-            ))}
-            {edges.map(([a, b], i) => (
-                <Line key={i} points={[nodes[a], nodes[b]]} lineWidth={1} color="#D4AF37" />
-            ))}
-        </group>
-    );
-};
+// const GraphModel = ({ animated }) => {
+//     const ref = useRef();
+//     useFrame((state, delta) => {
+//         if (animated && ref.current) {
+//             ref.current.rotation.y += delta * 0.1;
+//             ref.current.rotation.x = Math.sin(state.clock.elapsedTime) * 0.1;
+//         }
+//     });
+//     const nodes = [
+//         [-0.6, 0, 0],
+//         [0.6, 0, 0],
+//         [0, 0.8, 0.2],
+//     ];
+//     const edges = [[0, 1], [1, 2], [2, 0]];
+//     return (
+//         <group ref={ref} scale={1.5}>
+//             {nodes.map((pos, i) => (
+//                 <Float key={i} speed={1} floatIntensity={0.2} rotationIntensity={0.1}>
+//                     <mesh position={pos}>
+//                         <sphereGeometry args={[0.1, 32, 32]} />
+//                         <meshStandardMaterial color="#D4AF37" metalness={0.9} roughness={0.1} />
+//                     </mesh>
+//                 </Float>
+//             ))}
+//             {edges.map(([a, b], i) => (
+//                 <Line key={i} points={[nodes[a], nodes[b]]} lineWidth={1} color="#D4AF37" />
+//             ))}
+//         </group>
+//     );
+// };
+
+
 
 
 function ScrollToResumeButton() {
@@ -636,7 +642,9 @@ const AboutPage = () => {
         <>
             {/*<LoadingOverlay />*/}
 
-            <main ref={containerRef} className="bg-gradient-to-b from-[#1A1A1A] to-[#2D2D2D] text-white" id="about">
+            {/*<main ref={containerRef} className="bg-gradient-to-b from-[#1A1A1A] to-[#2D2D2D] text-white" id="about">*/}
+            <main ref={containerRef} className="bg-[#1a1a2e] to-[#2D2D2D] text-white" id="about">
+
                 {/*<section className="min-h-screen flex flex-col md:flex-row items-center justify-center px-4 md:px-8 lg:px-16 py-12">*/}
                 {/*        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 bg-gradient-to-r from-[#D4AF37] to-[#FFD700] bg-clip-text text-transparent">*/}
                 {/*            About Me*/}
@@ -676,10 +684,12 @@ const AboutPage = () => {
                         transition={{ duration: 0.8, ease: 'easeOut' }}
                     >
                         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 bg-gradient-to-r from-[#D4AF37] to-[#FFD700] bg-clip-text text-transparent">
-                            Algorithmic Artistry
+                            {/*Algorithmic Artistry*/}
+                            Computer Science Aesthetics
                         </h2>
-                        <p className="text-base sm:text-lg lg:text-xl leading-relaxed">
-                            Transforming complex computational concepts into elegant visual experiences.
+                        <p className="text-base sm:text-lg lg:text-xl leading-relaxed text-gray-200">
+                            {/*Transforming complex computational concepts into elegant visual experiences.*/}
+                            I've always been fascinated in many computer science concepts, from algorithms to programming and design principles, and how they can be visualized in a way that makes them not only understandable but also beautiful.
                         </p>
                     </motion.div>
                     <div className="w-full md:w-1/2 lg:w-3/5 h-64 sm:h-80 md:h-[50vh] lg:h-[60vh]">
