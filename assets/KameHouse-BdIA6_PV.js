@@ -1,1 +1,0 @@
-import{d as o,j as s}from"./vendor-ziB_T3bI.js";import"./three-CJdMxgMM.js";import"./hls-B91O44UO.js";const r=()=>{const{scene:e}=o("models/kame_house.glb");return s.jsx("primitive",{object:e,scale:.7,position:[0,-4,-8]})};export{r as default};
