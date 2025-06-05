@@ -5,6 +5,7 @@ import { useFrame } from '@react-three/fiber';
 import { useEffect, useState } from 'react';
 import { FaLinkedin, FaGithub, FaInstagram } from 'react-icons/fa';
 
+
 import FloatingParticles from '../models/FloatingParticles.jsx';
 
 import { useNavigate, useLocation } from "react-router-dom";
@@ -32,6 +33,32 @@ function ScrollToProjectsButton() {
         >
             Scroll Down to see my work ↓
         </button>
+        </div>
+    );
+}
+function ScrollToConnectButton() {
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const scrollToConnect = () => {
+        if (location.pathname !== "/") {
+            navigate("/"); // navigate to home
+            // After navigation, scroll must be triggered — use effect or a delay
+            // This can be tricky; simplest is to add a scroll handler on the home component
+        } else {
+            const el = document.getElementById("connect");
+            if (el) el.scrollIntoView({ behavior: "smooth" });
+        }
+    };
+
+    return (
+        <div className="flex flex-col items-center">
+            <button
+                onClick={scrollToConnect}
+                className="inline-block mt-6 px-6 py-2 rounded-md text-lg font-semibold text-300 bg-[#4cc9f0] hover:bg-[#62646C] transition duration-300"
+            >
+                Contact me →
+            </button>
         </div>
     );
 }
@@ -176,7 +203,7 @@ const Hero = () => {
     }, []);
 
     return (
-        <section className="h-screen w-full relative">
+        <section className="h-screen w-full relative" id="hero">
             <Canvas camera={{ position: [0, 0, 8], fov: 75 }} className="bg-[#1a1a2e]">
                 <ambientLight intensity={0.5} />
                 <pointLight position={[10, 10, 10]} intensity={1} />
@@ -240,15 +267,15 @@ const Hero = () => {
                 {/*        <FaInstagram size={24} color="#fff" />*/}
                 {/*    </a>*/}
                 {/*</div>*/}
-                <div>
-                <a
-                    href="#/contact"
-                    className="inline-block mt-6 px-6 py-2 rounded-md text-lg font-semibold text-300 bg-[#4cc9f0] hover:bg-[#62646C] transition duration-300"
-                >
-                    Contact me →
-                </a>
-                </div>
-
+                {/*<div>*/}
+                {/*<a*/}
+                {/*    href="#/contact"*/}
+                {/*    className="inline-block mt-6 px-6 py-2 rounded-md text-lg font-semibold text-300 bg-[#4cc9f0] hover:bg-[#62646C] transition duration-300"*/}
+                {/*>*/}
+                {/*    Contact me →*/}
+                {/*</a>*/}
+                {/*</div>*/}
+                <ScrollToConnectButton />
                 <ScrollToProjectsButton />
 
                 <ScrollToResumeButton />

@@ -76,6 +76,8 @@ import Skills from './components/Skills.jsx';
 import Resume from './components/Resume';
 
 import Footer  from "./sections/Footer.jsx";
+
+
 const App = () => (
     <Router>
         <Navbar />
@@ -86,9 +88,9 @@ const App = () => (
                     element={
                         <>
                             <Hero />
-                            <section id="projects" >
+                            {/*<section id="projects" >*/}
                                 <Projects/>
-                            </section>
+                            {/*</section>*/}
                             <Publications />
                             <section id="resume">
                                 <Resume />
@@ -96,9 +98,14 @@ const App = () => (
                             <section id="skills">
                                 <Skills />
                             </section>
-                            <section id="contact">
-                                <Contact/>
-                            </section>
+                            {/*<div id={"blank"} className="max-h-screen">*/}
+                            {/*</div>*/}
+                            {/*<section id="contact" className={"mt-20"}>*/}
+                            {/*    <Contact/>*/}
+                            {/*</section>*/}
+                            {/*<section id="connect" >*/}
+                                <Connect/>
+                            {/*</section>*/}
                             <Footer/>
                         </>
                     }

@@ -86,7 +86,8 @@ const Projects = () => {
     const currentProject = myProjects[selectedProjectIndex];
 
     return (
-        <section className="c-space my-20 relative bg-[#1a1a2e] text-white pt-10 overflow-y-auto" id="projects">
+        // <section className="c-space my-20 relative bg-[#1a1a2e] text-white pt-10 overflow-y-auto" id="projects">
+        <section className="bg-[#1a1a2e] text-white pt-10 mb-auto c-space my-20 " id="projects">
         {/*<section className="relative h-screen max-h-screen w-full bg-[#1a1a2e] text-white pt-10 mb-20 c-space my-20 overflow-y-auto " id="publications">*/}
 
             {/*<div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center z-10">*/}
@@ -134,7 +135,7 @@ const Projects = () => {
                     </div>
 
                     <div className="p-3 backdrop-filter backdrop-blur-3xl w-fit rounded-lg" style={currentProject.logoStyle}>
-                        <img className="w-30 h-10 shadow-sm " src={currentProject.logo} alt="logo" />
+                        <img className="w-30shadow-sm " src={currentProject.logo} alt="logo" />
                     </div>
 
                     <div className="flex flex-col gap-5 text-white-600 my-5">
@@ -204,7 +205,7 @@ const Projects = () => {
                                 </group>
                             </Suspense>
                         </Center>
-                        <OrbitControls maxPolarAngle={Math.PI / 2} enableZoom={false} />
+                        <OrbitControls maxPolarAngle={Math.PI / 2} enableZoom={true} enableRotate={true} enableDamping={true} />
                     </Canvas>
                 </div>
             </div>

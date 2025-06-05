@@ -79,16 +79,22 @@ const Resume = () => (
                 style={{ pointerEvents: 'none' }} // allow children to handle clicks
             >
 
-                <div className="relative z-10 c-space bg-transparent text-white max-w-6xl">
-                    <h2 className="
-    text-4xl sm:text-5xl font-bold text-gray-200
-  ">
+    {/*            <div className="relative z-10 c-space bg-transparent text-white max-w-6xl">*/}
+    {/*                <h2 className="*/}
+    {/*text-4xl sm:text-5xl font-bold text-gray-200">*/}
+    {/*                    My Resume*/}
+    {/*                </h2>*/}
+    {/*            </div>*/}
+
+                <div className="absolute left-1/2 top-0 transform -translate-x-1/2 mt-8 bg-transparent text-white w-full flex justify-center pointer-events-none">
+                    <h2 className="text-4xl sm:text-5xl font-bold text-gray-200 text-center">
                         My Resume
                     </h2>
                 </div>
 
 
-                <div className="pointer-events-auto flex flex-col items-center justify-center h-full ">
+
+                <div className="pointer-events-auto flex flex-col items-center justify-center h-full">
                     {/*<div className="pointer-events-auto max-w-7xl mx-auto px-6 py-16 c-space items-start">*/}
                     {/*<p className="head-text">My Resume</p>*/}
                     {/*</div>*/}
@@ -99,11 +105,21 @@ const Resume = () => (
                     {/*</h2>*/}
 
                     {/* PDF viewer */}
-                    <div className="w-full max-w-4xl h-[60vh] bg-white rounded-lg overflow-hidden mb-8 shadow-lg">
+                    {/*<div className="w-full max-w-4xl h-[60vh] bg-white rounded-lg overflow-hidden mb-8 shadow-lg">*/}
+                    {/*    <iframe*/}
+                    {/*        src="Pradyun_Resume.pdf"*/}
+                    {/*        title="My Resume"*/}
+                    {/*        className="w-full h-full"*/}
+                    {/*        frameBorder="0"*/}
+                    {/*    />*/}
+                    {/*</div>*/}
+
+                    {/*<div className="w-full max-w-4xl h-[40vh] sm:h-[50vh] md:h-[60vh] bg-white rounded-lg overflow-hidden mb-8 shadow-lg">*/}
+                    <div className="w-full max-w-4xl h-[40vh] sm:h-[50vh] md:h-[60vh] bg-white rounded-lg overflow-auto mb-8 shadow-lg shadow-[#3a4a8f]">
                         <iframe
                             src="Pradyun_Resume.pdf"
                             title="My Resume"
-                            className="w-full h-full"
+                            className="w-full h-full min-h-[300px]"
                             frameBorder="0"
                         />
                     </div>

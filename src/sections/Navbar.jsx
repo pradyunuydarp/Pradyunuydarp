@@ -151,24 +151,83 @@
 
 // src/sections/Navbar.jsx
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+// import {Link, useNavigate} from 'react-router-dom';
 import { navLinks } from '../constants/index.js';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
-const NavItems = ({ onClick = () => {} }) => (
-    <ul className="nav-ul flex flex-col sm:flex-row gap-4">
-        {navLinks.map((item) => (
-            <li key={item.id} className="nav-li">
-                <Link
-                    to={item.href}
-                    className="nav-li_a"
-                    onClick={onClick}
-                >
-                    {item.name}
-                </Link>
-            </li>
-        ))}
-    </ul>
-);
+
+
+// const ScrollToSections = (href, section) => {
+//     const navigate = useNavigate();
+//     // if (location.pathname !== "/") {
+//     //     navigate("/"); // navigate to home
+//         // After navigation, scroll must be triggered — use effect or a delay
+//         // This can be tricky; simplest is to add a scroll handler on the home component
+//     // } else {
+//         navigate(href); // navigate to the page
+//         const el = document.getElementById(section);
+//         if (el) el.scrollIntoView({ behavior: "smooth" });
+//     // }
+// };
+// const NavItems = ({ onClick = () => {} }) => (
+//     <ul className="nav-ul flex flex-col sm:flex-row gap-4">
+//         {navLinks.map((item) => (
+//             <li key={item.id} className="nav-li">
+//                 <Link
+//                     to={item.href}
+//                     className="nav-li_a"
+//                     onClick={ScrollToSections(item.href,item.section)}
+//                 >
+//                     {item.name}
+//                 </Link>
+//             </li>
+//         ))}
+//     </ul>
+// );
+
+const NavItems = ({ onClick = () => {} }) => {
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const handleNavigation = (href, section) => (e) => {
+        e.preventDefault(); // Prevent default link behavior
+
+        if (location.pathname !== '/'+href) {
+            navigate(href); // Navigate to home (or target route)
+
+            // Wait for route to load, then scroll
+            setTimeout(() => {
+                const el = document.getElementById(section);
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+            }, 100); // Small delay to ensure DOM updates
+        }
+        else {
+            // Already on the correct page
+            const el = document.getElementById(section);
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        onClick(); // trigger mobile menu close if needed
+    };
+
+    return (
+        <ul className="nav-ul flex flex-col sm:flex-row gap-4">
+            {navLinks.map((item) => (
+                <li key={item.id} className="nav-li">
+                    <Link
+                        to={item.href}
+                        className="nav-li_a"
+                        onClick={handleNavigation(item.href, item.section)}
+                    >
+                        {item.name}
+                    </Link>
+                </li>
+            ))}
+        </ul>
+    );
+};
+
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);

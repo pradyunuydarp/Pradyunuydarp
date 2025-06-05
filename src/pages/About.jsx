@@ -636,7 +636,7 @@ const AboutPage = () => {
         <>
             {/*<LoadingOverlay />*/}
 
-            <main ref={containerRef} className="bg-gradient-to-b from-[#1A1A1A] to-[#2D2D2D] text-white">
+            <main ref={containerRef} className="bg-gradient-to-b from-[#1A1A1A] to-[#2D2D2D] text-white" id="about">
                 {/*<section className="min-h-screen flex flex-col md:flex-row items-center justify-center px-4 md:px-8 lg:px-16 py-12">*/}
                 {/*        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 bg-gradient-to-r from-[#D4AF37] to-[#FFD700] bg-clip-text text-transparent">*/}
                 {/*            About Me*/}

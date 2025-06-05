@@ -85,7 +85,7 @@ const Contact = () => {
     };
 
     return (
-        <section className="h-screen w-full sticky overflow-y-auto" id="contact">
+        <section  className={"relative"} id="contact">
         {/*<section className="min-h-screen w-full flex items-center justify-center relative" id="contact">*/}
         {/*<section*/}
         {/*    id="contact"*/}
@@ -95,6 +95,8 @@ const Contact = () => {
 
             {alert.show && <Alert {...alert} />}
             {/*<div className="h-full w-full">*/}
+            {/*<div className="h-screen w-full sticky overflow-y-auto mt-8 pt-5 sm:mt-20 md:mt-12 scroll-mt-20">*/}
+            <div className="h-screen w-full relative mt-4 mb-8">
             <Canvas camera={{ position: [0, 0, 8], fov: 75 }} >
                 <ambientLight intensity={100} />
                 <pointLight position={[10, 10, 10]} intensity={1000} />
@@ -226,6 +228,7 @@ const Contact = () => {
                 {/*</span>*/}
             </div>
             {/*<Footer/>*/}
+            </div>
         </section>
     );
 };

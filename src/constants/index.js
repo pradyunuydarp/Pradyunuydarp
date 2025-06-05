@@ -2,22 +2,45 @@ export const navLinks = [
     {
         id: 1,
         name: 'Home',
-        href: '',
+        href: '/',
+        section: 'hero',
     },
     {
         id: 2,
         name: 'About',
         href: 'about',
+        section: 'about',
     },
     {
         id: 3,
         name: 'Work',
-        href: '',
+        href: '/',
+        section: 'projects',
+
     },
     {
         id: 4,
         name: 'Contact',
-        href: 'contact',
+        href: '/',
+        section: 'connect',
+    },
+    {
+        id: 5,
+        name: 'Resume',
+        href: '/resume',
+        section: 'resume',
+    },
+    // {
+    //     id: 6,
+    //     name: 'Publications',
+    //     href: '/publications',
+    //     section: 'publications',
+    // },
+    {
+        id: 7,
+        name: 'Skills',
+        href: '/',
+        section: 'skills',
     },
 ];
 
@@ -85,6 +108,9 @@ export const myProjects = [
         logoStyle: {
             backgroundColor: '#050a23',
             border: '0.8px solid #36201D',
+            width: '20rem',
+            height: '6rem',
+            objectFit: 'cover',
             boxShadow: '0px 0px 60px 0px #0422b7D',
         },
         spotlight: 'assets/spotlight1.png',
@@ -116,11 +142,16 @@ export const myProjects = [
             },
             {
                 id: 6,
+                name: 'MongoDB',
+                path: 'assets/mongodb.png',
+            },
+            {
+                id: 7,
                 name: 'Nginx',
                 path: 'assets/nginx.png',
             },
             {
-                id: 7,
+                id: 8,
                 name: 'Vite',
                 path: 'assets/vite.png',
             }
@@ -131,14 +162,19 @@ export const myProjects = [
         desc:'Column-Store DBMS is a custom-built, lightweight database management system developed in C++ that stores data in a column-oriented format for efficient analytical processing. It supports defining database schemas using XML, with data stored as individual binary files for each column. The system allows importing data from CSV files while enforcing relational constraints like primary, unique, and foreign keys, ensuring data integrity during insertion. It includes support for simple SQL-style SELECT queries and provides a basic utility framework for future operations like updates and deletions.',
         subdesc: 'The project emphasizes modular design and low-level data handling, showcasing strong systems programming skills. It includes a basic query engine, a custom data loader, and view support to define reusable virtual tables. Built without relying on existing database libraries, the DBMS demonstrates an understanding of how data is stored, validated, and retrieved at a fundamental level. Planned extensions include support for joins, indexing, and transaction logging to enhance performance and reliability.\n',
         href: 'https://github.com/pradyunuydarp/Column-Store-DBMS/',
-        texture: 'textures/project/project-1.mov',
-        logo: 'assets/project-1-logo.png',
+        texture: 'textures/project/col.mov',
+        logo: 'assets/ColStore logo.png',
         logoStyle: {
             backgroundColor: '#050a23',
             border: '0.8px solid #36201D',
+            borderRadius: '1rem',
+            height: '6.25rem',
+            width: '6.25rem',
+            radius: '1rem',
+            // objectFit: 'cover',
             boxShadow: '0px 0px 60px 0px #0422b7D',
         },
-        spotlight: 'assets/spotlight1.png',
+        spotlight: 'assets/spotlight3.png',
         tags: [
             {
                 id: 1,
@@ -147,6 +183,16 @@ export const myProjects = [
             },
             {
                 id: 2,
+                name: 'MySQL',
+                path: 'assets/mysql.png',
+            },
+            {
+                id: 3,
+                name: 'Makefile',
+                path: 'assets/makefile.png',
+            },
+            {
+                id: 4,
                 name: 'XML',
                 path: 'assets/xml.png',
             },
@@ -165,6 +211,180 @@ export const myProjects = [
             //     name: 'Framer Motion',
             //     path: 'assets/framer.png',
             // },
+
+
+        ],
+    },
+    {
+        title:'Mortal-Kombat-X-AirStriker: PPO Reinforcement Learning Agent',
+        desc: 'This project centers on training agents to play 2D retro games using reinforcement learning, specifically the Proximal Policy Optimization (PPO) algorithm. PPO was chosen for its stability and efficiency in policy updates, making it suitable for complex environments like classic video games. The agents were trained on games such as AirStriker Genesis and Mortal Kombat II, with each game modeled as a Markov Decision Process (MDP) to formalize the state, action, and reward structure.\n',
+        subdesc: 'For implementation, the project utilizes the stable-retro library for creating retro game environments and stable-baselines3 for reinforcement learning algorithms, both of which are actively maintained and compatible with modern Python and RL workflows. Key concepts include frame stacking for temporal context, vectorized environments for parallel training, and custom reward functions tailored to each game\'s mechanics. These frameworks and methods collectively enable robust agent training and evaluation in diverse gaming scenarios.\n',
+        href: 'https://github.com/Swaroop3/Mortal-Kombat-X-AirStriker',
+        texture: 'textures/project/mortal.mov',
+        logo: 'assets/Mortal-Kombat-agent logo.png',
+        logoStyle: {
+            backgroundColor: '#050a23',
+            border: '0.8px solid #36201D',
+            borderRadius: '1rem',
+            height: '6.25rem',
+            width: '6.25rem',
+            radius: '1rem',
+            // objectFit: 'cover',
+            boxShadow: '0px 0px 60px 0px #0422b7D',
+        },
+        spotlight: 'assets/spotlight2.png',
+        tags: [
+            {
+                id: 1,
+                name: 'Python',
+                path: 'assets/python.png',
+            },
+            {
+                id: 2,
+                name: 'PyTorch',
+                path: 'assets/pytorch.png',
+            },
+            {
+                id: 3,
+                name: 'Gym/Gymnasium',
+                path: 'assets/gymnasium.svg',
+            },
+            {
+                id: 4,
+                name: 'Stable-retro',
+                path: 'assets/stable-retro.png',
+            },
+        ],
+    },
+    {
+        title: 'Twitchalytics++',
+        desc: 'Twitchalytics++ is a comprehensive streaming analytics project that analyzes Twitch streamer performance data to provide insights into viewership trends, follower growth, and engagement patterns. The project examines key metrics including watch time, stream time, peak viewers, average viewers, and follower counts to help streamers make data-driven decisions about their content strategy and audience engagement. By analyzing both quantitative performance indicators and qualitative factors like partnership status and content ratings, the platform offers a holistic view of streaming performance across diverse channel types.',
+        subdesc: 'The technical implementation uses a Python-based analytics stack with Matplotlib and Seaborn for data visualization, processing comprehensive datasets containing channel information, temporal metrics, and audience engagement data. The project follows standard development practices with Git version control and pip dependency management, featuring modular code organization for collaborative development. Future enhancements include machine learning models for predictive analytics and sentiment analysis integration, developed by the core team of Pradyun, Tahir, and Narayana.',
+        href: 'https://github.com/pradyunuydarp/Twitchalytics-plus-plus',
+        texture: 'textures/project/project-1.mov',
+        logo: 'assets/Twitchalytics-logo.png',
+        logoStyle: {
+            backgroundColor: '#050a23',
+            border: '0.8px solid #36201D',
+            borderRadius: '1rem',
+            height: '6.25rem',
+            width: '6.25rem',
+            radius: '1rem',
+            // objectFit: 'cover',
+            boxShadow: '0px 0px 60px 0px #0422b7D',
+        },
+        spotlight: 'assets/spotlight4.png',
+        tags: [
+            {
+                id: 1,
+                name: 'Python',
+                path: 'assets/python.png',
+            },
+            {
+                id: 2,
+                name: 'Matplotlib',
+                path: 'assets/matplotlib.webp',
+            },
+            {
+                id: 3,
+                name: 'Seaborn',
+                path: 'assets/seaborn.svg',
+            },
+            {
+                id: 4,
+                name: 'Jupyter Notebook',
+                path: 'assets/jupyter.png',
+            },
+            {
+                id: 5,
+                name: 'Pandas',
+                path: 'assets/pandas.svg',
+            },
+            {
+                id: 6,
+                name: 'NumPy',
+                path: 'assets/numpy.png',
+            },
+        ],
+    }
+
+    ,{
+        title: 'Imageffects - Image Effects Application',
+        desc: 'Imageffects is a comprehensive image processing software that applies eleven distinct visual effects to JPEG and PNG images, including brightness adjustment, contrast modification, dominant color extraction, image flipping, blur, greyscale conversion, hue saturation manipulation, color inversion, rotation, sepia tone, and sharpening. The software features a dual-service architecture with a Photo Effect Service for image transformations and a Logging Service that tracks all applied effects with timestamp functionality, enabling users to maintain detailed records of their image processing workflows including filtering logs by specific effects and querying within time ranges.',
+        subdesc: 'The technical implementation leverages a hybrid architecture combining C++ for core image processing algorithms with Java wrappers using JNI (Java Native Interface) to enable seamless integration between the two languages. Images are represented as vector-based pixel structures within the C++ functions for efficient manipulation. The project follows object-oriented design principles with three abstract effect categories (NoParameterEffects, SingleParameterEffects, and DoubleParameterEffects) and corresponding concrete implementations, along with a robust exception handling system featuring specialized exception classes for different parameter types and illegal parameter validation. ',
+        href: 'https://github.com/pradyunuydarp/Imageffects',
+        texture: 'textures/project/project-1.mov',
+        logo: 'assets/Twitchalytics-logo.png',
+        logoStyle: {
+            backgroundColor: '#050a23',
+            border: '0.8px solid #36201D',
+            borderRadius: '1rem',
+            height: '6.25rem',
+            width: '6.25rem',
+            radius: '1rem',
+            // objectFit: 'cover',
+            boxShadow: '0px 0px 60px 0px #0422b7D',
+        },
+        spotlight: 'assets/spotlight1.png',
+        tags:[
+            {
+                id: 1,
+                name: 'C++',
+                path: 'assets/c++.png',
+            },
+            {
+                id: 2,
+                name: 'Java',
+                path: 'assets/java.png',
+            }
+        ],
+        // tags: [
+        //     {
+        //         id: 1,
+        //         name: 'Python',
+        //         path: 'assets/python.png',
+        //     },
+        //     {
+        //         id: 2,
+        //         name: 'Tkinter',
+        //         path: 'assets/tkinter.png',
+        //     },
+        //     {
+        //         id: 3,
+        //         name: 'Pillow',
+        //         path: 'assets/pillow.png',
+        //     },
+        // ],
+    },
+    {
+        title: 'miniC - Custom Syntax Interpreter',
+        desc:'The miniC project is a custom syntax interpreter that implements a simplified C-like programming language with essential programming constructs. The project supports fundamental operations including variable assignment, arithmetic expressions, conditional statements (if/else), and a specialized printing format. Built with a modular architecture, the interpreter consists of separate header and source files for different functionalities: interpreter.h/c for core interpretation logic, arithmetic.h/c for mathematical operations, condition.h/c for conditional processing, print.h/c for output handling, and variable.h/c for variable management. The language supports up to 15 alphabetic characters for variable names and includes nested conditional statements, making it suitable for basic programming tasks and educational purposes.',
+        subdesc:'The technical implementation uses C programming language with a straightforward compilation process managed through Makefiles and GCC compiler. The interpreter supports arithmetic operations including addition, subtraction, multiplication, division, modulus, and exponentiation, though it evaluates expressions strictly from left to right without BODMAS precedence rules. The printing system features unique syntax elements such as parentheses for string literals, tilde (~) for newline characters, and exclamation marks (!) for tab characters. The project maintains space-independent syntax similar to standard C and operates without variable scope restrictions, allowing any declared variable to be accessed throughout the program. Users can compile and run the interpreter using standard GCC commands or the provided Makefile, with the main.c file serving as the entry point for writing and testing miniC code.',
+        href: 'https://github.com/pradyunuydarp/miniC',
+        texture: 'textures/project/project-1.mov',
+        logo: 'assets/project-1-logo.png',
+        logoStyle: {
+            backgroundColor: '#050a23',
+            border: '0.8px solid #36201D',
+            borderRadius: '1rem',
+            height: '6.25rem',
+            width: '6.25rem',
+            radius: '1rem',
+            // objectFit: 'cover',
+            boxShadow: '0px 0px 60px 0px #0422b7D',
+        },
+        spotlight: 'assets/spotlight5.png',
+        tags:[
+            {
+                id: 1,
+                name: 'C',
+                path: 'assets/c.png',
+            },
+            {
+                id: 2,
+                name: 'Makefile',
+                path: 'assets/makefile.png',
+            }
         ],
     }
     ]
@@ -177,7 +397,7 @@ export const mypublications = [
         year: '2025',
         link: 'https://link.springer.com/chapter/10.1007/978-3-031-83438-7_3',
         texture: 'textures/publication/publication-1.mov',
-        spotlight: 'assets/spotlight1.png',
+        spotlight: 'assets/spotlight3.png',
     }
     // ,
     // {
