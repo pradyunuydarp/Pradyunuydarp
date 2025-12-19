@@ -1,6 +1,7 @@
 
 # 💫 About Me:
 I'm a senior majoring in comp sci @iiitb, India!
+![yo]([https://media3.giphy.com/media/aUovxH8Vf9qDu/giphy.gif](https://tenor.com/pRV9N9iW7i2.gif))
 
 
 ## 🌐 Socials:
